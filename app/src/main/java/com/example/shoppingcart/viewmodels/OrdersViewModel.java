@@ -1,12 +1,11 @@
 package com.example.shoppingcart.viewmodels;
 
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.shoppingcart.models.Order;
-import com.example.shoppingcart.models.Product;
-import com.example.shoppingcart.repositories.CartRepo;
 import com.example.shoppingcart.repositories.OrdersRepo;
 
 import java.util.List;

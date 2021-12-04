@@ -1,20 +1,24 @@
 package com.example.shoppingcart.adapters;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.shoppingcart.databinding.FoodRowBinding;
 import com.example.shoppingcart.databinding.OrderRowBinding;
 import com.example.shoppingcart.models.Order;
-import com.example.shoppingcart.models.Product;
+import com.example.shoppingcart.views.ReviewFragment;
 
 public class OrdersListAdapter extends ListAdapter<Order, OrdersListAdapter.OrderViewHolder> {
 
     OrderInterface orderInterface;
+    Context context;
 
     public OrdersListAdapter(OrdersListAdapter.OrderInterface orderInterface) {
         super(Order.itemCallback);
@@ -32,7 +36,7 @@ public class OrdersListAdapter extends ListAdapter<Order, OrdersListAdapter.Orde
 
     @Override
     public void onBindViewHolder(@NonNull OrdersListAdapter.OrderViewHolder holder, int position) {
-        Order order = getItem(position);
+        final Order order = getItem(position);
         holder.orderRowBinding.setOrder(order);
         holder.orderRowBinding.executePendingBindings();
     }
@@ -51,4 +55,5 @@ public class OrdersListAdapter extends ListAdapter<Order, OrdersListAdapter.Orde
         void addItem(Order order);
         void onItemClick(Order order);
     }
+
 }

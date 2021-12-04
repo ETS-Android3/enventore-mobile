@@ -10,6 +10,8 @@
     <color name="colorAccent">#59CF3E</color>
     <color name="yellow">#FFBF0B</color>
 
+    <color name="lightgray">#e8e8e8</color>
+
     <color name="black">#000000</color>
     <color name="White">#FFFFFF</color>
     <color name="colorAlmostWhite">#CCCCCC</color>

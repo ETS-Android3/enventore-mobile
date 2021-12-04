@@ -10,9 +10,6 @@ import androidx.lifecycle.ViewModelProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.shoppingcart.R;
-import com.example.shoppingcart.adapters.ShopListAdapter;
 import com.example.shoppingcart.databinding.FragmentProductDetailBinding;
 import com.example.shoppingcart.viewmodels.ShopViewModel;
 
@@ -26,9 +23,7 @@ public class ProductDetailFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         fragmentProductDetailBinding = FragmentProductDetailBinding.inflate(inflater, container, false);
         return fragmentProductDetailBinding.getRoot();
     }
@@ -39,5 +34,6 @@ public class ProductDetailFragment extends Fragment {
 
         shopViewModel = new ViewModelProvider(requireActivity()).get(ShopViewModel.class);
         fragmentProductDetailBinding.setShopViewModel(shopViewModel);
+
     }
 }

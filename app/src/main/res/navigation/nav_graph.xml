@@ -102,5 +102,16 @@
         <action
             android:id="@+id/action_ordersFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_ordersFragment_to_reviewFragment"
+            app:destination="@id/reviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reviewFragment"
+        android:name="com.example.shoppingcart.views.ReviewFragment"
+        android:label="ReviewFragment" >
+        <action
+            android:id="@+id/action_reviewFragment_to_ordersFragment"
+            app:destination="@id/ordersFragment" />
     </fragment>
 </navigation>
