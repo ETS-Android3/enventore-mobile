@@ -54,7 +54,7 @@ public class FoodRepo {
                     newProducts.add(product);
                     System.out.println(product);
                 }
-//                mutableProductList.setValue(newProducts);
+                mutableProductList.setValue(newProducts);
             }
 
             @Override

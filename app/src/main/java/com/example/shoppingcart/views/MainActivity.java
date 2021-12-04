@@ -11,6 +11,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,12 +31,22 @@ public class MainActivity extends AppCompatActivity {
     NavController navController;
     ShopViewModel shopViewModel;
 
+    public static String userId;
+    public static String mName;
+
     private int cartQuantity = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(TextUtils.isEmpty(userId)){
+            userId = getIntent().getStringExtra("userId");
+            mName = getIntent().getStringExtra("name");
+        }else {
+
+        }
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);

@@ -20,7 +20,7 @@ public class Product {
     @SerializedName("price")
     private double price;
 
-    private boolean isAvailable;
+    private boolean isAvailable = true;
 
     @SerializedName("dishPicture")
     private String imageUrl;
@@ -34,11 +34,10 @@ public class Product {
     @SerializedName("genre")
     private String genre;
 
-    public Product(String id, String name, double price, boolean isAvailable, String imageUrl, String description, String storeId, String genre) {
+    public Product(String id, String name, double price, String imageUrl, String description, String storeId, String genre) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.isAvailable = isAvailable;
         this.imageUrl = imageUrl;
         this.description = description;
         this.storeId = storeId;
@@ -70,7 +69,7 @@ public class Product {
     }
 
     public boolean isAvailable() {
-        return isAvailable;
+        return true;
     }
 
     public void setAvailable(boolean available) {
@@ -115,7 +114,6 @@ public class Product {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", price=" + price +
-                ", isAvailable=" + isAvailable +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", description='" + description + '\'' +
                 ", storeId='" + storeId + '\'' +
@@ -129,7 +127,6 @@ public class Product {
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
         return Double.compare(product.getPrice(), getPrice()) == 0 &&
-                isAvailable() == product.isAvailable() &&
                 getId().equals(product.getId()) &&
                 getName().equals(product.getName()) &&
                 getImageUrl().equals(product.getImageUrl()) &&

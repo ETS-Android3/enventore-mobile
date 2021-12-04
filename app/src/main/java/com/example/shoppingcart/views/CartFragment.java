@@ -13,14 +13,26 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
 import com.example.shoppingcart.R;
 import com.example.shoppingcart.adapters.CartListAdapter;
 import com.example.shoppingcart.databinding.FragmentCartBinding;
+import com.example.shoppingcart.interfaces.RetrofitInterface;
 import com.example.shoppingcart.models.CartItem;
+import com.example.shoppingcart.models.Order;
+import com.example.shoppingcart.models.Product;
 import com.example.shoppingcart.viewmodels.FoodViewModel;
 import com.example.shoppingcart.viewmodels.ShopViewModel;
 
+import java.util.HashMap;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CartFragment extends Fragment implements CartListAdapter.CartInterface {
 
@@ -29,6 +41,13 @@ public class CartFragment extends Fragment implements CartListAdapter.CartInterf
     FoodViewModel foodViewModel;
     FragmentCartBinding fragmentCartBinding;
     NavController navController;
+
+    private Retrofit retrofit;
+    private RetrofitInterface retrofitInterface;
+    private String BASE_URL = "http://192.168.1.101:3001";
+
+    private TextView username;
+    private static String userId;
 
     public CartFragment() {
         // Required empty public constructor
@@ -47,12 +66,16 @@ public class CartFragment extends Fragment implements CartListAdapter.CartInterf
 
         navController = Navigation.findNavController(view);
 
+        username = (TextView)view.findViewById(R.id.txtName);
+        MainActivity mainActivity = (MainActivity)getActivity();
+
         final CartListAdapter cartListAdapter = new CartListAdapter(this);
         fragmentCartBinding.cartRecyclerView.setAdapter(cartListAdapter);
         fragmentCartBinding.cartRecyclerView.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
 
         shopViewModel = new ViewModelProvider(requireActivity()).get(ShopViewModel.class);
         foodViewModel = new ViewModelProvider(requireActivity()).get(FoodViewModel.class);
+
 
 //        shopViewModel.getCart().observe(getViewLifecycleOwner(), new Observer<List<CartItem>>() {
 //            @Override
@@ -93,6 +116,32 @@ public class CartFragment extends Fragment implements CartListAdapter.CartInterf
             public void onClick(View v) {
                 System.out.println("xxxxxxxxxxxxxxxxxx");
                 System.out.println(cartListAdapter.getCurrentList());
+
+                retrofit = new Retrofit.Builder()
+                        .baseUrl(BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+
+                retrofitInterface = retrofit.create(RetrofitInterface.class);
+
+                HashMap<String, List<CartItem>> map = new HashMap<>();
+
+                map.put("orderList",cartListAdapter.getCurrentList());
+
+                Call<Void> orderCall = retrofitInterface.executeOrder(map);
+
+                orderCall.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        System.out.println("Success Order API Call");
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        System.out.println("Failed Order API Call");
+                    }
+                });
+
                 navController.navigate(R.id.action_cartFragment_to_orderFragment);
             }
         });

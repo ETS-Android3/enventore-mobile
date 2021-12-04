@@ -1,13 +1,19 @@
 package com.example.shoppingcart.repositories;
 
+import android.widget.TextView;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.shoppingcart.R;
 import com.example.shoppingcart.models.CartItem;
 import com.example.shoppingcart.models.Product;
+import com.example.shoppingcart.views.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.shoppingcart.views.MainActivity.userId;
 
 public class CartRepo {
 
@@ -27,6 +33,7 @@ public class CartRepo {
     }
 
     public boolean addItemToCart(Product product) {
+
         if (mutableCart.getValue() == null) {
             initCart();
         }
@@ -46,7 +53,7 @@ public class CartRepo {
                 return true;
             }
         }
-        CartItem cartItem = new CartItem(product, 1);
+        CartItem cartItem = new CartItem(product, 1 , userId);
         cartItemList.add(cartItem);
         mutableCart.setValue(cartItemList);
         calculateCartTotal();
@@ -68,7 +75,7 @@ public class CartRepo {
 
         List<CartItem> cartItemList = new ArrayList<>(mutableCart.getValue());
 
-        CartItem updatedItem = new CartItem(cartItem.getProduct(), quantity);
+        CartItem updatedItem = new CartItem(cartItem.getProduct(), quantity , userId);
         cartItemList.set(cartItemList.indexOf(cartItem), updatedItem);
 
         mutableCart.setValue(cartItemList);

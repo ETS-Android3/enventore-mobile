@@ -12,10 +12,12 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.DividerItemDecoration;
 
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.shoppingcart.R;
 import com.example.shoppingcart.adapters.ShopListAdapter;
@@ -35,6 +37,9 @@ public class ShopFragment extends Fragment implements ShopListAdapter.ShopInterf
     private ShopViewModel shopViewModel;
     private NavController navController;
 
+    private TextView username;
+    private static String userId;
+
     public ShopFragment() {
         // Required empty public constructor
     }
@@ -50,6 +55,11 @@ public class ShopFragment extends Fragment implements ShopListAdapter.ShopInterf
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        username = (TextView)view.findViewById(R.id.txtName);
+        MainActivity mainActivity = (MainActivity)getActivity();
+
+        username.setText("Hi Welcome\n" + mainActivity.mName);
 
         shopListAdapter = new ShopListAdapter(this);
         fragmentShopBinding.shopRecyclerView.setAdapter(shopListAdapter);
@@ -70,6 +80,7 @@ public class ShopFragment extends Fragment implements ShopListAdapter.ShopInterf
 
     @Override
     public void addItem(Product product) {
+        System.out.println("XXXXX");
         boolean isAdded = shopViewModel.addItemToCart(product);
         if (isAdded) {
             Snackbar.make(requireView(), product.getName() + " added to cart.", Snackbar.LENGTH_LONG)

@@ -15,12 +15,14 @@ import android.view.ViewGroup;
 
 import com.example.shoppingcart.R;
 import com.example.shoppingcart.databinding.FragmentOrderBinding;
+import com.example.shoppingcart.viewmodels.FoodViewModel;
 import com.example.shoppingcart.viewmodels.ShopViewModel;
 
 public class OrderFragment extends Fragment {
 
     NavController navController;
     FragmentOrderBinding fragmentOrderBinding;
+    FoodViewModel foodViewModel;
     ShopViewModel shopViewModel;
 
     public OrderFragment() {
@@ -42,11 +44,13 @@ public class OrderFragment extends Fragment {
 
         navController = Navigation.findNavController(view);
         shopViewModel = new ViewModelProvider(requireActivity()).get(ShopViewModel.class);
+        foodViewModel = new ViewModelProvider(requireActivity()).get(FoodViewModel.class);
 
         fragmentOrderBinding.continueShoppingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 shopViewModel.resetCart();
+                foodViewModel.resetCart();
                 navController.navigate(R.id.action_orderFragment_to_shopFragment);
             }
         });

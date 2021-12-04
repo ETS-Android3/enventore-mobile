@@ -114,7 +114,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
                             android:fontFamily="@font/bold"
-                            android:text="@{String.valueOf(shopViewModel.product.price) + `$` }"
+                            android:text="@{String.valueOf(shopViewModel.product.price) + ` LKR` }"
                             android:textColor="@color/White"
                             android:textSize="18sp" />
 
@@ -165,11 +165,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:fontFamily="@font/light"
-                    android:text="John Doe and 32 people love this dish"
+                    android:text="@{shopViewModel.product.name}"
                     android:textColor="@color/black"
                     android:paddingTop="25sp"
                     android:paddingHorizontal="25sp"
-                    android:textSize="12sp" />
+                    android:textSize="14sp" />
 
 
                 <TextView
@@ -179,7 +179,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:fontFamily="@font/light"
-                    android:text="@string/food_desc"
+                    android:text="@{shopViewModel.product.description}"
                     android:textColor="@color/black"
                     android:paddingTop="15sp"
                     android:paddingHorizontal="25sp"
@@ -192,7 +192,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:fontFamily="@font/light"
-                    android:text="Spicy | Yummy | Salty | Healthy "
+                    android:text="@{shopViewModel.product.genre}"
                     android:textColor="@color/black"
                     android:paddingTop="10sp"
                     android:paddingHorizontal="25sp"

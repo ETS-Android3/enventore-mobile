@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,6 +38,9 @@ public class FoodFragment extends Fragment implements FoodListAdapter.FoodInterf
     private FoodViewModel foodViewModel;
     private NavController navController;
 
+    private TextView username;
+    private static String userId;
+
     public FoodFragment() {
     }
 
@@ -49,6 +54,11 @@ public class FoodFragment extends Fragment implements FoodListAdapter.FoodInterf
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        username = (TextView)view.findViewById(R.id.txtName);
+        MainActivity mainActivity = (MainActivity)getActivity();
+
+        username.setText("Hi Welcome\n" + mainActivity.mName);
 
         foodListAdapter = new FoodListAdapter(this);
         fragmentFoodBinding.foodRecyclerView.setAdapter(foodListAdapter);
@@ -68,6 +78,7 @@ public class FoodFragment extends Fragment implements FoodListAdapter.FoodInterf
 
     @Override
     public void addItem(Product product) {
+        System.out.println("OOOOO");
         boolean isAdded = foodViewModel.addItemToCart(product);
         if (isAdded) {
             Snackbar.make(requireView(), product.getName() + " added to cart.", Snackbar.LENGTH_LONG)

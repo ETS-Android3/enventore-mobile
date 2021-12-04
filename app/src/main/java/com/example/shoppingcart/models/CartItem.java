@@ -11,11 +11,13 @@ import java.util.Objects;
 public class CartItem {
 
     private Product product;
+    private String userId;
     private int quantity;
 
-    public CartItem(Product product, int quantity) {
+    public CartItem(Product product, int quantity , String userId) {
         this.product = product;
         this.quantity = quantity;
+        this.userId = userId;
     }
 
     public Product getProduct() {
@@ -34,11 +36,20 @@ public class CartItem {
         this.quantity = quantity;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
         return "CartItem{" +
                 "product=" + product +
                 ", quantity=" + quantity +
+                ", userId=" + userId +
                 '}';
     }
 
@@ -48,6 +59,7 @@ public class CartItem {
         if (o == null || getClass() != o.getClass()) return false;
         CartItem cartItem = (CartItem) o;
         return getQuantity() == cartItem.getQuantity() &&
+                getUserId() == cartItem.getUserId() &&
                 getProduct().equals(cartItem.getProduct());
     }
 
