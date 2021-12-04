@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="cartItem"
+            type="com.example.shoppingcart.models.CartItem" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="8">
+
+            <androidx.cardview.widget.CardView
+                android:layout_weight="2.5"
+                android:id="@+id/cardView"
+                android:layout_height="125dp"
+                android:layout_width="0sp"
+                app:cardElevation="0dp"
+                app:cardCornerRadius="20sp"
+                app:cardBackgroundColor="@android:color/transparent">
+
+                <ImageView
+                    android:id="@+id/productImageView"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:scaleType="fitXY"
+                    android:layout_margin="5sp"
+                    android:src="@drawable/komtu"
+                    android:productImage="@{cartItem.product.imageUrl}"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_weight="5.3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/food_ppl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:fontFamily="@font/medium"
+                    android:text="@{cartItem.product.name}"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8sp"
+                    android:layout_marginHorizontal="15sp"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/food_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginVertical="5sp"
+                    android:fontFamily="@font/light"
+                    android:layout_marginHorizontal="15sp"
+                    android:text="@{String.valueOf(cartItem.product.price)}"
+                    android:textColor="@color/ash"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:layout_marginHorizontal="15sp"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/minus"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/minus"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_round"/>
+
+                    <Spinner
+                        android:id="@+id/quantitySpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLength="4"
+                        android:layout_marginHorizontal="10sp"
+                        android:entries="@array/quantity_string_array"
+                        android:setVal="@{cartItem.quantity}"
+                        />
+
+                    <ImageButton
+                        android:id="@+id/plus"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/plus"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_round"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageButton
+                android:layout_weight="0.2"
+                android:id="@+id/deleteProductButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_trash"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
+

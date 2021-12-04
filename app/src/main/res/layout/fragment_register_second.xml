@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/greeting"
+                android:layout_marginVertical="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/dot1"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/dot" />
+
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10sp"
+                    android:text="Step 2"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/bold"
+                    android:textSize="25sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="We almost there..."
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="@font/bold"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/enterSec"
+                android:layout_below="@id/greeting"
+                android:layout_above="@id/bottomBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/bold"
+                    android:text="When is your Birthday?"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/dob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Date of Birth"
+                    android:inputType="date"
+                    android:textSize="13dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="13dp"
+                    android:paddingBottom="13dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/edittextback"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:cursorVisible="false"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/bold"
+                    android:text="Are you?"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/setDiet"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/bold"
+                    android:text="Are you?"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15sp"
+                    android:orientation="vertical">
+
+                    <RadioGroup
+                        android:id="@+id/status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/sta_vegi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/regular"
+                            android:textSize="12sp"
+                            android:text="Vegitarian"
+                            android:textColor="@color/colorPrimaryDark"/>
+
+                        <RadioButton
+                            android:id="@+id/sta_veg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/regular"
+                            android:textSize="12sp"
+                            android:text="Vegan"
+                            android:textColor="@color/colorPrimaryDark"/>
+
+                        <RadioButton
+                            android:id="@+id/sta_non_veg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/regular"
+                            android:textSize="12sp"
+                            android:text="Non-Vegitarian"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:checked="true"/>
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5sp"
+                    android:layout_marginTop="5sp"
+                    android:fontFamily="@font/bold"
+                    android:text="Do you have any health conditions?"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/setCondition"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/bold"
+                    android:text="Are you?"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15sp"
+                    android:orientation="vertical">
+
+                    <RadioGroup
+                        android:id="@+id/condition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/cond_yes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/regular"
+                            android:textSize="12sp"
+                            android:text="Yes"
+                            android:textColor="@color/colorPrimaryDark"/>
+
+                        <RadioButton
+                            android:id="@+id/cond_no"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/regular"
+                            android:textSize="12sp"
+                            android:text="No"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:checked="true"/>
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="which one you mostly prefer?"
+                    android:layout_marginBottom="5sp"
+                    android:layout_marginTop="5sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:fontFamily="@font/bold"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15sp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/pref_spicy"
+                            android:layout_width="0sp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/regular"
+                            android:text="Spicy"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorPrimaryDark" />
+
+                        <CheckBox
+                            android:id="@+id/pref_savoury"
+                            android:layout_width="0sp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/regular"
+                            android:text="Savoury"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorPrimaryDark" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/pref_bitter"
+                            android:layout_width="0sp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/regular"
+                            android:text="Bitter"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorPrimaryDark" />
+
+                        <CheckBox
+                            android:id="@+id/pref_sweet"
+                            android:layout_width="0sp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/regular"
+                            android:text="Sweet"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorPrimaryDark" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/pref_salty"
+                            android:layout_width="0sp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/regular"
+                            android:text="Salty"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorPrimaryDark" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottomBar"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20sp"
+                    android:paddingVertical="10sp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Do you have an account?"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="@font/bold"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tlogin"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="Log in"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/bold"
+                        android:textSize="12sp"
+                        android:clickable="true"
+                        android:onClick="goLogin"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/register"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:text="Register"
+                    android:background="@color/colorPrimaryDark"
+                    android:textColor="@color/White"
+                    android:fontFamily="@font/bold"
+                    android:textSize="15dp"
+                    android:clickable="true"/>
+
+                <TextView
+                    android:id="@+id/cancelbut"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingBottom="10sp"
+                    android:text="Not Now"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:fontFamily="@font/bold"
+                    android:textSize="12sp"
+                    android:clickable="true"
+                    android:onClick="goLogin"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

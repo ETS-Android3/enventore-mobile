@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/order_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:fontFamily="@font/bold"
+            android:text="My Cart"
+            android:textColor="@color/black"
+            android:layout_marginTop="15sp"
+            android:layout_marginHorizontal="15sp"
+            android:textSize="25sp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_marginTop="15sp"
+            android:layout_below="@id/order_head"
+            android:layout_above="@id/cost"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                tools:context=".views.CartFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/cartRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/cart_row"
+                    tools:itemCount="2"
+                    />
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            tools:context=".views.CartFragment"
+            android:id="@+id/cost"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10sp"
+            android:layout_marginHorizontal="8sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:fontFamily="@font/medium"
+                android:text="Order Info"
+                android:textColor="@color/black"
+                android:layout_marginTop="8sp"
+                android:layout_marginHorizontal="15sp"
+                android:layout_marginBottom="12sp"
+                android:textSize="17sp" />
+
+            <LinearLayout
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:layout_marginVertical="5sp"
+                    android:fontFamily="@font/medium"
+                    android:layout_marginHorizontal="15sp"
+                    android:text="Subtotal"
+                    android:textColor="@color/ash"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/subTotal"
+                    android:layout_weight="1"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:layout_marginVertical="5sp"
+                    android:fontFamily="@font/light"
+                    android:layout_marginHorizontal="15sp"
+                    android:text="Rs.600"
+                    android:textColor="@color/ash"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:layout_marginVertical="5sp"
+                    android:fontFamily="@font/medium"
+                    android:layout_marginHorizontal="15sp"
+                    android:text="Delivery Cost"
+                    android:textColor="@color/ash"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:layout_marginVertical="5sp"
+                    android:fontFamily="@font/light"
+                    android:layout_marginHorizontal="15sp"
+                    android:text="+ Rs 120"
+                    android:textColor="@color/ash"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10sp">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:layout_marginVertical="5sp"
+                    android:fontFamily="@font/medium"
+                    android:layout_marginHorizontal="15sp"
+                    android:text="Total"
+                    android:textColor="@color/ash"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/orderTotalTextView"
+                    android:layout_weight="1"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:layout_marginVertical="5sp"
+                    android:fontFamily="@font/bold"
+                    android:layout_marginHorizontal="15sp"
+                    android:text="Rs.690"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/placeOrderButton"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:text="Checkout"
+                android:textAllCaps="false"
+                android:layout_marginHorizontal="15sp"
+                android:background="@drawable/btn_corder_round"
+                android:textColor="@color/White"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

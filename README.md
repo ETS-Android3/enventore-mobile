@@ -1,2 +1,1 @@
-# enventore-mobile
-android mobile application
+# Shopping cart application MVVM architecture
