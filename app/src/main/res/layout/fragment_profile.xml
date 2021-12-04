@@ -193,6 +193,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:background="@drawable/ripple"
+                    android:id="@+id/prevOrders"
                     android:orientation="horizontal">
 
                     <ImageButton

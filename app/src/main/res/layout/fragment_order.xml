@@ -7,7 +7,6 @@
     android:orientation="vertical"
     android:gravity="center"
     >
-    OrderFragment
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

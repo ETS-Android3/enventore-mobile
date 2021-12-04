@@ -138,7 +138,7 @@ public class DashActivity extends AppCompatActivity implements View.OnClickListe
                 if (buttonNext.getText().toString().equalsIgnoreCase("next")){
                     mSlideViewPager.setCurrentItem(mCurrentPage + 1);
                 } else {
-                    startActivity(new Intent(DashActivity.this, Login.class));
+                    startActivity(new Intent(DashActivity.this, MainActivity.class));
                 }
                 break;
             case R.id.btn_previous:
