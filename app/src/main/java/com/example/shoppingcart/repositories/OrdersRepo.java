@@ -5,12 +5,24 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.shoppingcart.interfaces.RetrofitInterface;
 import com.example.shoppingcart.models.Order;
+import com.example.shoppingcart.models.Product;
+import com.example.shoppingcart.viewmodels.OrdersViewModel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.example.shoppingcart.views.MainActivity.userId;
 
 public class OrdersRepo {
+
+    OrdersViewModel ordersViewModel;
 
     private Retrofit retrofit;
     private RetrofitInterface retrofitInterface;
@@ -27,13 +39,35 @@ public class OrdersRepo {
     }
 
     private void loadOrders() {
-        List<Order> orderList = new ArrayList<>();
-        orderList.add(new Order("XXXXXXXX", "oooooooo", "lollollol", "Kottuu" , 320));
-        orderList.add(new Order("10256251", "oooooooo", "hello cucci", "Cheese" , 320));
-        orderList.add(new Order("15842569", "oooooooo", "lollollol", "String Hoppers" , 320));
-        orderList.add(new Order("XXXXXXXX", "oooooooo", "lollollol", "Fried RIce" , 320));
-        orderList.add(new Order("XXXXXXXX", "oooooooo", "lollollol", "Banana" , 320));
-        mutableOrderList.setValue(orderList);
 
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        retrofitInterface = retrofit.create(RetrofitInterface.class);
+
+        HashMap<String , String> map = new HashMap<>();
+        map.put("userId" , userId);
+
+        Call<List<Order>> orderCall = retrofitInterface.getMyOrders(map);
+        orderCall.enqueue(new Callback<List<Order>>() {
+            @Override
+            public void onResponse(Call<List<Order>> call, Response<List<Order>> response) {
+                List<Order> orderList = response.body();
+                List<Order> newOrders = new ArrayList<>();
+
+                for(Order order : orderList){
+                    newOrders.add(order);
+                    System.out.println(order);
+                }
+                mutableOrderList.setValue(newOrders);
+            }
+
+            @Override
+            public void onFailure(Call<List<Order>> call, Throwable t) {
+                System.out.println("failed");
+            }
+        });
     }
 }

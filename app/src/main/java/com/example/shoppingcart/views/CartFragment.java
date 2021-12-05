@@ -114,7 +114,6 @@ public class CartFragment extends Fragment implements CartListAdapter.CartInterf
         fragmentCartBinding.placeOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("xxxxxxxxxxxxxxxxxx");
                 System.out.println(cartListAdapter.getCurrentList());
 
                 retrofit = new Retrofit.Builder()

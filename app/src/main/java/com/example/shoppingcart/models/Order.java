@@ -3,18 +3,28 @@ package com.example.shoppingcart.models;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 
-import java.util.Objects;
-
 public class Order {
-    private String userId , storeId , dishId , dishName;
-    private double price;
+    private String orderId , userId , storeId , dishId , dishName , dishPicture;
+    private int quantity;
+    private boolean rated;
 
-    public Order(String userId, String storeId, String dishId, String dishName, double price) {
+    public Order(String orderId , String userId, String storeId, String dishId, String dishName, String dishPicture, int quantity, boolean rated) {
+        this.orderId = orderId;
         this.userId = userId;
         this.storeId = storeId;
         this.dishId = dishId;
         this.dishName = dishName;
-        this.price = price;
+        this.dishPicture = dishPicture;
+        this.quantity = quantity;
+        this.rated = rated;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     public String getUserId() {
@@ -49,23 +59,28 @@ public class Order {
         this.dishName = dishName;
     }
 
-    public double getPrice() {
-        return price;
+    public String getDishPicture() {
+        return dishPicture;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setDishPicture(String dishPicture) {
+        this.dishPicture = dishPicture;
     }
 
-    @Override
-    public String toString() {
-        return "Order{" +
-                "userId='" + userId + '\'' +
-                ", storeId='" + storeId + '\'' +
-                ", dishId='" + dishId + '\'' +
-                ", dishName='" + dishName + '\'' +
-                ", price=" + price +
-                '}';
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public boolean isRated() {
+        return rated;
+    }
+
+    public void setRated(boolean rated) {
+        this.rated = rated;
     }
 
     @Override
@@ -73,11 +88,14 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return Double.compare(order.getPrice(), getPrice()) == 0 &&
-                getDishId().equals(order.getDishId()) &&
-                getDishName().equals(order.getDishName()) &&
-                getStoreId().equals(order.getStoreId()) &&
-                getUserId().equals(order.getUserId());
+        return orderId == order.orderId &&
+                quantity == order.quantity &&
+                rated == order.rated &&
+                userId.equals(order.userId) &&
+                storeId.equals(order.storeId) &&
+                dishId.equals(order.dishId) &&
+                dishName.equals(order.dishName) &&
+                dishPicture.equals(order.dishPicture);
     }
 
     public static DiffUtil.ItemCallback<Order> itemCallback = new DiffUtil.ItemCallback<Order>() {

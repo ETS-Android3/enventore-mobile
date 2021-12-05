@@ -4,6 +4,7 @@ import com.example.shoppingcart.models.CartItem;
 import com.example.shoppingcart.models.LoginResult;
 import com.example.shoppingcart.models.Order;
 import com.example.shoppingcart.models.Product;
+import com.example.shoppingcart.models.Rate;
 import com.example.shoppingcart.models.User;
 
 import java.util.HashMap;
@@ -31,6 +32,9 @@ public interface RetrofitInterface {
     @POST("/order")
     Call<Void> executeOrder(@Body HashMap<String,List<CartItem>> map);
 
-//    @GET("users/{username}")
-//    Call<User> getUser(@Path("username") String username);
+    @POST("/rateFood")
+    Call<Rate> executeRate(@Body HashMap<String,Rate> map);
+
+    @POST("/getOrders")
+    Call<List<Order>> getMyOrders(@Body HashMap<String,String> map);
 }
