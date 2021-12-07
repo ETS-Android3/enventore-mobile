@@ -1,6 +1,7 @@
 package com.example.shoppingcart.interfaces;
 
 import com.example.shoppingcart.models.CartItem;
+import com.example.shoppingcart.models.Food;
 import com.example.shoppingcart.models.LoginResult;
 import com.example.shoppingcart.models.Order;
 import com.example.shoppingcart.models.Product;
@@ -22,6 +23,9 @@ public interface RetrofitInterface {
 
     @POST("/register")
     Call<User> executeRegister(@Body HashMap<String,String> map);
+
+    @POST("/getRecFoods")
+    Call<List<Product>> getRecProducts(@Body HashMap<String,String> map);
 
     @GET("/loadFoods")
     Call<List<Product>> getAllFoods();

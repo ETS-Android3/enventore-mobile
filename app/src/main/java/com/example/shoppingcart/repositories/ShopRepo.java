@@ -5,8 +5,11 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.shoppingcart.interfaces.RetrofitInterface;
 import com.example.shoppingcart.models.Product;
+import com.example.shoppingcart.models.Rate;
+import com.example.shoppingcart.views.MainActivity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,7 +23,7 @@ public class ShopRepo {
 
     private Retrofit retrofit;
     private RetrofitInterface retrofitInterface;
-    private String BASE_URL = "http://192.168.1.101:3001";
+    private String BASE_URL = "http://3.144.145.92:3001";
 
     private MutableLiveData<List<Product>> mutableProductList;
 
@@ -34,6 +37,8 @@ public class ShopRepo {
 
     private void loadProducts() {
 
+        String userId = MainActivity.userId;
+
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -41,8 +46,11 @@ public class ShopRepo {
 
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        Call<List<Product>> productCall = retrofitInterface.getAllFoods();
-        productCall.enqueue(new Callback<List<Product>>() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("userId",userId);
+
+        final Call<List<Product>> productRecCall = retrofitInterface.getRecProducts(map);
+        productRecCall.enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 List<Product> productList = response.body();
@@ -50,6 +58,7 @@ public class ShopRepo {
 
                 for(Product product : productList){
                     newProducts.add(product);
+                    System.out.println("xoxoxoxo");
                     System.out.println(product);
                 }
                 mutableProductList.setValue(newProducts);

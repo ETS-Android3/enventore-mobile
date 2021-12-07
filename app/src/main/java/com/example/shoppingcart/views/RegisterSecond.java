@@ -39,7 +39,7 @@ public class RegisterSecond extends Fragment implements View.OnClickListener {
 
     private Retrofit retrofit;
     private RetrofitInterface retrofitInterface;
-    private String BASE_URL = "http://192.168.1.101:3001";
+    private String BASE_URL = "http://3.144.145.92:3001";
 
     DatePickerDialog.OnDateSetListener mDateSetListener;
 

@@ -60,6 +60,9 @@
         <action
             android:id="@+id/action_profileFragment_to_ordersFragment"
             app:destination="@id/ordersFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_complaintFragment"
+            app:destination="@id/complaintFragment" />
     </fragment>
     <fragment
         android:id="@+id/foodFragment"
@@ -108,4 +111,8 @@
             android:id="@+id/action_reviewFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/complaintFragment"
+        android:name="com.example.shoppingcart.views.ComplaintFragment"
+        android:label="ComplaintFragment" />
 </navigation>

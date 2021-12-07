@@ -38,7 +38,7 @@
                     android:scaleType="fitXY"
                     android:layout_margin="5sp"
                     android:src="@drawable/komtu"
-                    android:productImage="@{cartItem.product.imageUrl}"/>
+                    android:productImage="@{`http://3.144.145.92:3001/` + cartItem.product.imageUrl}"/>
 
             </androidx.cardview.widget.CardView>
 

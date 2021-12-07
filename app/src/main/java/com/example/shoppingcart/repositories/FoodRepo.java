@@ -22,7 +22,7 @@ public class FoodRepo {
 
     private Retrofit retrofit;
     private RetrofitInterface retrofitInterface;
-    private String BASE_URL = "http://192.168.1.101:3001";
+    private String BASE_URL = "http://3.144.145.92:3001";
 
     private MutableLiveData<List<Product>> mutableProductList;
 
@@ -52,7 +52,6 @@ public class FoodRepo {
 
                 for(Product product : productList){
                     newProducts.add(product);
-                    System.out.println(product);
                 }
                 mutableProductList.setValue(newProducts);
             }

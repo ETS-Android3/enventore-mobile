@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="400sp"
                 android:scaleType="fitXY"
-                android:productImage="@{foodViewModel.product.imageUrl}"/>
+                android:productImage="@{`http://3.144.145.92:3001/` + foodViewModel.product.imageUrl}"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
