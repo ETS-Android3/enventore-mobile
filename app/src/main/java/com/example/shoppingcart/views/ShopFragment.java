@@ -80,7 +80,6 @@ public class ShopFragment extends Fragment implements ShopListAdapter.ShopInterf
 
     @Override
     public void addItem(Product product) {
-        System.out.println("XXXXX");
         boolean isAdded = shopViewModel.addItemToCart(product);
         if (isAdded) {
             Snackbar.make(requireView(), product.getName() + " added to cart.", Snackbar.LENGTH_LONG)

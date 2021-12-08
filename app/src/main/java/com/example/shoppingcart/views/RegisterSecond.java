@@ -156,7 +156,8 @@ public class RegisterSecond extends Fragment implements View.OnClickListener {
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             Gson gson = new Gson();
                             String userdata = gson.toJson(result);
-                            intent.putExtra("userdata",userdata);
+                            intent.putExtra("userId",response.body().getUserId());
+                            intent.putExtra("name",response.body().getName());
                             startActivity(intent);
                             ((Activity) getActivity()).overridePendingTransition(0, 0);
                         }

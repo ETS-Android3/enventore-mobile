@@ -106,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
                         android:fontFamily="@font/bold"
-                        android:text="@{String.valueOf(product.price) + ` $`}"
+                        android:text="@{String.valueOf(product.price) + ` LKR`}"
                         android:textColor="@color/White"
                         android:textSize="12sp" />
 
@@ -131,7 +131,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:fontFamily="@font/medium"
-                            android:text="@{String.valueOf(product.price) + ` LKR`}"
+                            android:text="4.2"
                             android:textColor="@color/White"
                             android:textSize="8sp" />
 

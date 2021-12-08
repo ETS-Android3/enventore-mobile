@@ -49,7 +49,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
         Fragment fragment = new Fragment();
         switch (view.getId()){
             case R.id.prevOrders:
-                System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
                 navController.navigate(R.id.action_profileFragment_to_ordersFragment);
 
         }
