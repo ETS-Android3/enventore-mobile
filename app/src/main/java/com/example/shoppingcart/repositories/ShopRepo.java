@@ -58,8 +58,6 @@ public class ShopRepo {
 
                 for(Product product : productList){
                     newProducts.add(product);
-                    System.out.println("xoxoxoxo");
-                    System.out.println(product);
                 }
                 mutableProductList.setValue(newProducts);
             }

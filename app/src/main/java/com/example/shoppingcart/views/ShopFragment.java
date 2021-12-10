@@ -11,6 +11,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -18,11 +19,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.shoppingcart.R;
 import com.example.shoppingcart.adapters.ShopListAdapter;
 import com.example.shoppingcart.databinding.FragmentShopBinding;
 import com.example.shoppingcart.models.Product;
+import com.example.shoppingcart.repositories.ShopRepo;
 import com.example.shoppingcart.viewmodels.ShopViewModel;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
@@ -36,6 +39,7 @@ public class ShopFragment extends Fragment implements ShopListAdapter.ShopInterf
     private ShopListAdapter shopListAdapter;
     private ShopViewModel shopViewModel;
     private NavController navController;
+    public ShopRepo shopRepo;
 
     private TextView username;
     private static String userId;
@@ -60,6 +64,18 @@ public class ShopFragment extends Fragment implements ShopListAdapter.ShopInterf
         MainActivity mainActivity = (MainActivity)getActivity();
 
         username.setText("Hi Welcome\n" + mainActivity.mName);
+        final SwipeRefreshLayout pullToRefresh = view.findViewById(R.id.pullToRefresh);
+
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                ShopRepo shopRepo = new ShopRepo();
+                shopRepo.getProducts();
+                Toast.makeText(getContext(), "Products Refreshed", Toast.LENGTH_SHORT).show();
+//                shopRepo.getProducts();
+                pullToRefresh.setRefreshing(false);
+            }
+        });
 
         shopListAdapter = new ShopListAdapter(this);
         fragmentShopBinding.shopRecyclerView.setAdapter(shopListAdapter);

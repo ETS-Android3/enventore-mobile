@@ -61,13 +61,12 @@ public class Login extends AppCompatActivity {
                     public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
                         if (response.code() == 200) {
                             LoginResult result = response.body();
+                            System.out.println(response.body().toString());
                             Intent intent = new Intent(Login.this, MainActivity.class);
                             intent.putExtra("userId" , result.getUserId());
-                            intent.putExtra("name",result.getUsername());
+                            intent.putExtra("name",result.getName());
                             startActivity(intent);
                         }
-
-                        Toast.makeText(Login.this, "Response " +response, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

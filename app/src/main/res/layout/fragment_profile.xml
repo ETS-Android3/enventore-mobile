@@ -47,7 +47,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/propic2">
+                        android:background="@drawable/user">
 
 
                     </LinearLayout>
@@ -79,7 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:fontFamily="@font/medium"
-                        android:text="Front End Developer"
+                        android:text="Final Year Project"
                         android:textColor="@color/ash"
                         android:textSize="12sp" />
 
@@ -149,6 +149,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:weightSum="10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -224,6 +225,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/complaints"
                     android:weightSum="10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -246,7 +248,7 @@
                         android:paddingStart="15sp"
                         android:gravity="center_vertical"
                         android:fontFamily="@font/medium"
-                        android:text="Your Favourites"
+                        android:text="Complaints"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
 
@@ -261,6 +263,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/promotions"
                     android:weightSum="10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -335,6 +338,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/payments"
                     android:weightSum="10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -372,6 +376,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/logOut"
                     android:weightSum="10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -385,7 +390,7 @@
                         android:layout_width="40sp"
                         android:layout_height="40sp"
                         android:background="@drawable/round_square_btn"
-                        android:src="@drawable/ic_built"/>
+                        android:src="@drawable/ic_logout"/>
 
                     <TextView
                         android:layout_weight="9"
@@ -394,7 +399,7 @@
                         android:paddingStart="15sp"
                         android:gravity="center_vertical"
                         android:fontFamily="@font/medium"
-                        android:text="Settings"
+                        android:text="Logout"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
 

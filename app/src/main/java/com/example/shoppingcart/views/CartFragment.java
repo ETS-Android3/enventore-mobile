@@ -77,15 +77,7 @@ public class CartFragment extends Fragment implements CartListAdapter.CartInterf
         foodViewModel = new ViewModelProvider(requireActivity()).get(FoodViewModel.class);
 
 
-//        shopViewModel.getCart().observe(getViewLifecycleOwner(), new Observer<List<CartItem>>() {
-//            @Override
-//            public void onChanged(List<CartItem> cartItems) {
-//                cartListAdapter.submitList(cartItems);
-//                fragmentCartBinding.placeOrderButton.setEnabled(cartItems.size() > 0);
-//            }
-//        });
-
-        foodViewModel.getCart().observe(getViewLifecycleOwner(), new Observer<List<CartItem>>() {
+        shopViewModel.getCart().observe(getViewLifecycleOwner(), new Observer<List<CartItem>>() {
             @Override
             public void onChanged(List<CartItem> cartItems) {
                 cartListAdapter.submitList(cartItems);
@@ -93,16 +85,15 @@ public class CartFragment extends Fragment implements CartListAdapter.CartInterf
             }
         });
 
-//        shopViewModel.getTotalPrice().observe(getViewLifecycleOwner(), new Observer<Double>() {
+//        foodViewModel.getCart().observe(getViewLifecycleOwner(), new Observer<List<CartItem>>() {
 //            @Override
-//            public void onChanged(Double aDouble) {
-//                fragmentCartBinding.subTotal.setText("Rs " + aDouble.toString());
-//                double totalCost = aDouble + 120;
-//                fragmentCartBinding.orderTotalTextView.setText("Rs " + totalCost);
+//            public void onChanged(List<CartItem> cartItems) {
+//                cartListAdapter.submitList(cartItems);
+//                fragmentCartBinding.placeOrderButton.setEnabled(cartItems.size() > 0);
 //            }
 //        });
 
-        foodViewModel.getTotalPrice().observe(getViewLifecycleOwner(), new Observer<Double>() {
+        shopViewModel.getTotalPrice().observe(getViewLifecycleOwner(), new Observer<Double>() {
             @Override
             public void onChanged(Double aDouble) {
                 fragmentCartBinding.subTotal.setText("Rs " + aDouble.toString());
@@ -111,11 +102,18 @@ public class CartFragment extends Fragment implements CartListAdapter.CartInterf
             }
         });
 
+//        foodViewModel.getTotalPrice().observe(getViewLifecycleOwner(), new Observer<Double>() {
+//            @Override
+//            public void onChanged(Double aDouble) {
+//                fragmentCartBinding.subTotal.setText("Rs " + aDouble.toString());
+//                double totalCost = aDouble + 120;
+//                fragmentCartBinding.orderTotalTextView.setText("Rs " + totalCost);
+//            }
+//        });
+
         fragmentCartBinding.placeOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println(cartListAdapter.getCurrentList());
-
                 retrofit = new Retrofit.Builder()
                         .baseUrl(BASE_URL)
                         .addConverterFactory(GsonConverterFactory.create())
@@ -149,13 +147,13 @@ public class CartFragment extends Fragment implements CartListAdapter.CartInterf
 
     @Override
     public void deleteItem(CartItem cartItem) {
-//        shopViewModel.removeItemFromCart(cartItem);
-        foodViewModel.removeItemFromCart(cartItem);
+        shopViewModel.removeItemFromCart(cartItem);
+//        foodViewModel.removeItemFromCart(cartItem);
     }
 
     @Override
     public void changeQuantity(CartItem cartItem, int quantity) {
-//        shopViewModel.changeQuantity(cartItem, quantity);
-        foodViewModel.changeQuantity(cartItem, quantity);
+        shopViewModel.changeQuantity(cartItem, quantity);
+//        foodViewModel.changeQuantity(cartItem, quantity);
     }
 }

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/head"
+                android:layout_marginTop="30sp"
+                android:layout_marginHorizontal="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:fontFamily="@font/bold"
+                android:text="Coupons and Promotions"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20sp"
+                android:layout_marginTop="20sp"
+                android:layout_below="@id/head">
+
+                <LinearLayout
+                    android:layout_weight="5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/blue_card"
+                    android:layout_marginBottom="15sp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+
+                        android:layout_weight="4"
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="20sp"
+                            android:gravity="center_vertical"
+                            android:fontFamily="@font/bold"
+                            android:text="Hello,"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="20sp"
+                            android:gravity="center_vertical"
+                            android:fontFamily="@font/medium"
+                            android:text="Grab your coupons soon"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_weight="2"
+                        android:layout_width="0sp"
+                        android:layout_height="100sp"
+                        android:paddingTop="10sp"
+                        android:src="@drawable/person1"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="35sp"
+                    android:layout_weight="5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yellow_card"
+                    android:layout_marginBottom="15sp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_weight="4"
+                        android:layout_width="0sp"
+                        android:paddingVertical="20sp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="20sp"
+                            android:gravity="center_vertical"
+                            android:fontFamily="@font/bold"
+                            android:text="20% OFF ON WEEKENDS"
+                            android:textColor="@color/black"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="20sp"
+                            android:gravity="center_vertical"
+                            android:fontFamily="@font/medium"
+                            android:text="COUPON CODE - JOY20"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="20sp"
+                            android:gravity="center_vertical"
+                            android:fontFamily="@font/medium"
+                            android:text="Terms and conditions are applied"
+                            android:textColor="@color/black"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_weight="5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/purple_card"
+                    android:layout_marginBottom="15sp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_weight="4"
+                        android:layout_width="0sp"
+                        android:paddingVertical="20sp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="20sp"
+                            android:gravity="end"
+                            android:paddingEnd="20sp"
+                            android:fontFamily="@font/bold"
+                            android:text="30% OFF AFTER 10PM"
+                            android:textColor="@color/black"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="20sp"
+                            android:gravity="end"
+                            android:paddingEnd="20sp"
+                            android:fontFamily="@font/medium"
+                            android:text="COUPON CODE - MOVIE8"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="20sp"
+                            android:paddingEnd="20sp"
+                            android:gravity="end"
+                            android:fontFamily="@font/medium"
+                            android:text="Terms and conditions are applied"
+                            android:textColor="@color/black"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/green_card"
+                    android:layout_marginBottom="15sp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_weight="4"
+                        android:layout_width="0sp"
+                        android:paddingVertical="20sp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="20sp"
+                            android:gravity="center_vertical"
+                            android:fontFamily="@font/bold"
+                            android:text="10% OFF 9AM-11AM"
+                            android:textColor="@color/black"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="20sp"
+                            android:gravity="center_vertical"
+                            android:fontFamily="@font/medium"
+                            android:text="COUPON CODE - BUSY10"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="20sp"
+                            android:gravity="center_vertical"
+                            android:fontFamily="@font/medium"
+                            android:text="Terms and conditions are applied"
+                            android:textColor="@color/black"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

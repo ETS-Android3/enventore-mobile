@@ -13,6 +13,8 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
 
 import com.example.shoppingcart.R;
@@ -150,16 +152,17 @@ public class RegisterSecond extends Fragment implements View.OnClickListener {
                     public void onResponse(Call<User> call, Response<User> response) {
                         if (response.code() == 200) {
                             User result = response.body();
-                            Intent intent = new Intent(getActivity(), MainActivity.class);
+                            Intent intent = new Intent(getActivity(), Login.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            Gson gson = new Gson();
-                            String userdata = gson.toJson(result);
-                            intent.putExtra("userId",response.body().getUserId());
-                            intent.putExtra("name",response.body().getName());
+//                            Gson gson = new Gson();
+//                            String userdata = gson.toJson(result);
+//                            intent.putExtra("userId",response.body().getUserId());
+//                            intent.putExtra("name",response.body().getName());
                             startActivity(intent);
                             ((Activity) getActivity()).overridePendingTransition(0, 0);
+                            Toast.makeText(getContext(), "Please Login Again With Credentials", Toast.LENGTH_SHORT).show();
                         }
                     }
 

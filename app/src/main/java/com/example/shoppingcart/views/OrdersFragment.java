@@ -15,11 +15,14 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.shoppingcart.R;
 import com.example.shoppingcart.adapters.OrdersListAdapter;
 import com.example.shoppingcart.databinding.FragmentOrdersBinding;
 import com.example.shoppingcart.models.Order;
+import com.example.shoppingcart.repositories.OrdersRepo;
+import com.example.shoppingcart.repositories.ShopRepo;
 import com.example.shoppingcart.viewmodels.OrdersViewModel;
 
 import java.util.List;
@@ -31,6 +34,7 @@ public class OrdersFragment extends Fragment implements OrdersListAdapter.OrderI
     private OrdersListAdapter ordersListAdapter;
     private OrdersViewModel ordersViewModel;
     private NavController navController;
+    private OrdersRepo ordersRepo;
 
     public OrdersFragment() {
         // Required empty public constructor
@@ -47,6 +51,18 @@ public class OrdersFragment extends Fragment implements OrdersListAdapter.OrderI
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        final SwipeRefreshLayout pullToRefresh = view.findViewById(R.id.pullToRefresh);
+
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                OrdersRepo ordersRepo = new OrdersRepo();
+                ordersRepo.getOrders();
+                Toast.makeText(getContext(), "Orders Refreshed", Toast.LENGTH_SHORT).show();
+                pullToRefresh.setRefreshing(false);
+            }
+        });
 
         ordersListAdapter = new OrdersListAdapter(this);
         fragmentOrdersBinding.ordersRecyclerView.setAdapter(ordersListAdapter);

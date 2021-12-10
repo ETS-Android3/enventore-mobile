@@ -59,7 +59,6 @@ public class OrdersRepo {
 
                 for(Order order : orderList){
                     newOrders.add(order);
-                    System.out.println(order);
                 }
                 mutableOrderList.setValue(newOrders);
             }

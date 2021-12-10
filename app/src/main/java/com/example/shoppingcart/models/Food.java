@@ -10,9 +10,9 @@ import com.bumptech.glide.Glide;
 
 public class Food {
     private String dishId , storeId , dishName , category , hours , ingredients , dishPicture , description , genre;
-    private double price;
+    private int price;
 
-    public Food(String dishId, String storeId, String dishName, String category, String hours, String ingredients, String dishPicture, String description, String genre, double price) {
+    public Food(String dishId, String storeId, String dishName, String category, String hours, String ingredients, String dishPicture, String description, String genre, int price) {
         this.dishId = dishId;
         this.storeId = storeId;
         this.dishName = dishName;
@@ -101,7 +101,7 @@ public class Food {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

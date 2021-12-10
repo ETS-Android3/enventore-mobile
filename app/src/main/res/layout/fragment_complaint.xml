@@ -1,6 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/reviewback"
+    xmlns:tools="http://schemas.android.com/tools">
+
+        <RelativeLayout
+            android:background="@drawable/black_shade"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_centerInParent="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="15dp"
+                android:layout_marginVertical="50sp"
+                android:layout_marginHorizontal="15sp"
+                android:elevation="10sp"
+                app:cardUseCompatPadding="true"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="25sp"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="15sp"
+                        android:layout_height="15sp"
+                        android:layout_marginTop="25sp"
+                        android:layout_marginBottom="15sp"
+                        android:background="@drawable/dot"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Complaint"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/bold"
+                        android:layout_marginBottom="20sp"
+                        android:textSize="25sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Let us know what's happened"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/regular"
+                        android:layout_marginBottom="10sp"
+                        android:textSize="14sp"/>
+
+                    <Spinner
+                        android:id="@+id/coursesspinner"
+                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittextback"
+                        android:hint="Please Let us know your thoughts"
+                        android:gravity="top|left"
+                        android:textSize="15sp"
+                        android:paddingVertical="10sp"
+                        android:paddingHorizontal="10sp"
+                        android:inputType="textMultiLine"
+                        android:overScrollMode="always"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollbars="vertical"
+                        android:lines="6"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:scrollHorizontally="false"/>
+
+                    <Button
+                        android:id="@+id/submitComplaint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25sp"
+                        android:text="Submit Complaint"
+                        android:background="@drawable/btn_border"
+                        android:textColor="@color/colorPrimary"
+                        android:fontFamily="@font/bold"
+                        android:paddingVertical="10sp"
+                        android:paddingHorizontal="15sp"
+                        android:layout_marginBottom="20sp"/>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

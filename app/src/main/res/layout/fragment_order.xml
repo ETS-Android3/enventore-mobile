@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,23 +7,45 @@
     android:orientation="vertical"
     android:gravity="center"
     >
-    <TextView
+
+    <LinearLayout
+        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thanks for your order."
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        />
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:src="@drawable/ic_thanks"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thanks for your order."
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            />
+
+    </LinearLayout>
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="16dp"/>
 
     <Button
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:id="@+id/continueShoppingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/medium"
+        android:textSize="18sp"
+        android:layout_marginBottom="10sp"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:text="Continue Shopping"
         />
 
-</LinearLayout>
+</RelativeLayout>
